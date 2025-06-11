@@ -1,0 +1,165 @@
+@import 'tailwindcss';
+
+@plugin 'tailwindcss-animate';
+
+@source '../views';
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+    --font-sans:
+        'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+    --radius-lg: var(--radius);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-sm: calc(var(--radius) - 4px);
+
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+
+    --color-destructive: var(--destructive);
+    --color-destructive-foreground: var(--destructive-foreground);
+
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+
+    --color-chart-1: var(--chart-1);
+    --color-chart-2: var(--chart-2);
+    --color-chart-3: var(--chart-3);
+    --color-chart-4: var(--chart-4);
+    --color-chart-5: var(--chart-5);
+
+    --color-sidebar: var(--sidebar);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-gray-200, currentColor);
+    }
+}
+
+:root {
+    /* Light theme - main color palette */
+    --background: #F6F1F1;
+    --foreground: #0C6C95;
+    --card: #F6F1F1;
+    --card-foreground: #0C6C95;
+    --popover: #F6F1F1;
+    --popover-foreground: #0C6C95;
+    --primary: #12A9CF;
+    --primary-foreground: #F6F1F1;
+    --secondary: #B1D4E3;
+    --secondary-foreground: #0C6C95;
+    --muted: #B1D4E3;
+    --muted-foreground: #0C6C95;
+    --accent: #12A9CF;
+    --accent-foreground: #F6F1F1;
+    --destructive: #ff4444;
+    --destructive-foreground: #F6F1F1;
+    --border: #B1D4E3;
+    --input: #B1D4E3;
+    --ring: #12A9CF;
+    --chart-1: #12A9CF;
+    --chart-2: #0C6C95;
+    --chart-3: #B1D4E3;
+    --chart-4: #F6F1F1;
+    --chart-5: #12A9CF;
+    --radius: 0.625rem;
+
+    /* Light theme - sidebar specific */
+    --sidebar: #F6F1F1;
+    --sidebar-foreground: #0C6C95;
+    --sidebar-primary: #12A9CF;
+    --sidebar-primary-foreground: #F6F1F1;
+    --sidebar-accent: #B1D4E3;
+    --sidebar-accent-foreground: #0C6C95;
+    --sidebar-border: #B1D4E3;
+    --sidebar-ring: #12A9CF;
+}
+
+.dark {
+    /* Dark theme - main color palette with black accents */
+    --background: #121212;
+    --foreground: #F6F1F1;
+    --card: #1E1E1E;
+    --card-foreground: #F6F1F1;
+    --popover: #1E1E1E;
+    --popover-foreground: #F6F1F1;
+    --primary: #12A9CF;
+    --primary-foreground: #F6F1F1;
+    --secondary: #2A2A2A;
+    --secondary-foreground: #F6F1F1;
+    --muted: #2A2A2A;
+    --muted-foreground: #B1D4E3;
+    --accent: #333333;
+    --accent-foreground: #F6F1F1;
+    --destructive: #ff4444;
+    --destructive-foreground: #F6F1F1;
+    --border: #333333;
+    --input: #333333;
+    --ring: #12A9CF;
+    --chart-1: #12A9CF;
+    --chart-2: #B1D4E3;
+    --chart-3: #F6F1F1;
+    --chart-4: #333333;
+    --chart-5: #12A9CF;
+
+    /* Dark theme - sidebar specific */
+    --sidebar: #121212;
+    --sidebar-foreground: #F6F1F1;
+    --sidebar-primary: #12A9CF;
+    --sidebar-primary-foreground: #F6F1F1;
+    --sidebar-accent: #333333;
+    --sidebar-accent-foreground: #F6F1F1;
+    --sidebar-border: #333333;
+    --sidebar-ring: #12A9CF;
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+    }
+}
